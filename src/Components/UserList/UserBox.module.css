@@ -1,0 +1,13 @@
+.box {
+  border: 3px solid #999;
+  width: 100%;
+  min-height: 60px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  font-weight: 999;
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+};
