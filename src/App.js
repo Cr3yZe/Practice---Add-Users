@@ -8,6 +8,8 @@ import styles from './App.module.css'
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [users, setUsers] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [currentUserData, setCurrentUserData] = useState({});
 
   const saveUserData = userData => {
     console.log(userData);
@@ -19,15 +21,19 @@ function App() {
     })
   }
 
-  const showModalErrorHandler = value => {
+  const showModalErrorHandler = (...values) => {
+    const [message, userData, value] = values;
+
+    setCurrentUserData(userData);
     setShowModal(value);
+    setErrorMessage(message);
   };
 
   if (showModal) {
     return (
       <div className={styles.appWrapper}>
-        <ModalError onChangingModal={showModalErrorHandler} />
-        <UserInput onSaveUserData={saveUserData} onInvalidInput={showModalErrorHandler} />
+        <ModalError onChangingModal={showModalErrorHandler} modalErrorMessage={errorMessage} />
+        <UserInput onSaveUserData={saveUserData} onInvalidInput={showModalErrorHandler} sendCurrentUserData={currentUserData}/>
         <UserList usersData={users} />
       </div>
     )

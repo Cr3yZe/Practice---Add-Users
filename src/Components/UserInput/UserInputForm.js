@@ -6,20 +6,36 @@ const UserInputForm = props => {
   const [userName, setUserName] = useState('');
   const [userAge, setUserAge] = useState('');
 
+  if (!userName && !userAge) {  
+    if (props.sendCurrentUserData) {
+      const { name, age } = props.sendCurrentUserData;
+
+      setUserName(name);
+      setUserAge(age);
+    }
+  }
+
   const submitDataHandler = event => {
     event.preventDefault();
-    
-    const trimedUserName = userName.trim();
 
-    if (!(Boolean(trimedUserName.length))) {
-      props.onInvalidInput(true);
-      return;
-    }
+    const trimedUserName = userName.trim();
 
     const user = {
       name: trimedUserName,
-      age: `(${userAge} years)`,
+      age: userAge,
       id: Math.ceil(Math.random() * 1000),
+    }
+
+    if (!(Boolean(trimedUserName.length))) {
+      const message = 'Please enter a valid name and age (non-empty values).';
+      props.onInvalidInput(message, user, true);
+      return;
+    }
+
+    if (userAge <= 0 || userAge > 100) {
+      const message = 'You have to enter a valid number(> 0 && != 0)';
+      props.onInvalidInput(message, user, true);
+      return;
     }
 
     setUserName('');

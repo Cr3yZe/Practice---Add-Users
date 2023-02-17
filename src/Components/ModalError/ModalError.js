@@ -18,8 +18,8 @@ const ModalError = props => {
           <h3>Invalid Input</h3>
         </div>
         <div className={styles['invalid-input__message']}>
-          <p>Please enter a valid name and age (non-empty values).</p>
-          <button type="button">Okay</button>
+          <p>{props.modalErrorMessage}</p>
+          <button type="button" autoFocus={true}>Okay</button>
         </div>
       </Card>
     </div>
