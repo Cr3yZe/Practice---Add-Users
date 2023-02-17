@@ -2,14 +2,14 @@
   background-color: white;
   min-height: 50px;
   width: 100%;
-  border-radius: 15px;
+  border-radius: var(--main-border-radius);
   margin-bottom: 30px;;
   padding: 30px;
 }
 
 @media (min-width: 800px) {
   .card {
-    max-width: 40rem;
+    max-width: 65rem;
     min-height: 50px;
   }
 }

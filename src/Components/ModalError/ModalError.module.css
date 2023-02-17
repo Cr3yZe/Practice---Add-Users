@@ -1,0 +1,52 @@
+.card-error__wrapper {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999 !important;
+}
+
+.card-error {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px !important;
+}
+
+.invalid-input__header {
+  background-color: var(--main-color);
+  border-top-left-radius: var(--main-border-radius);
+  border-top-right-radius: var(--main-border-radius);
+  font-size: 30px;
+  color: white;
+  padding: 20px;
+}
+
+.invalid-input__message {
+  min-height: 10rem;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.invalid-input__message p {
+  color: #000;
+  font-weight: 666;
+}
+
+.invalid-input__message button {
+  background-color: var(--main-color);
+  min-width: 50%;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 888;
+  padding: 10px;
+  align-self: center;
+  cursor: pointer;
+}

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 import UserInput from './Components/UserInput/UserInput';
 import UserList from './Components/UserList/UserList';
+import ModalError from './Components/ModalError/ModalError';
 import styles from './App.module.css'
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
   const [users, setUsers] = useState([]);
 
   const saveUserData = userData => {
@@ -17,10 +19,23 @@ function App() {
     })
   }
 
+  const showModalErrorHandler = value => {
+    setShowModal(value);
+  };
+
+  if (showModal) {
+    return (
+      <div className={styles.appWrapper}>
+        <ModalError onChangingModal={showModalErrorHandler} />
+        <UserInput onSaveUserData={saveUserData} onInvalidInput={showModalErrorHandler} />
+        <UserList usersData={users} />
+      </div>
+    )
+  }
 
   return (
     <div className={styles.appWrapper}>
-      <UserInput onSaveUserData={saveUserData} />
+      <UserInput onSaveUserData={saveUserData} onInvalidInput={showModalErrorHandler} />
       <UserList usersData={users} />
     </div>
   );

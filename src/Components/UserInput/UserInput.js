@@ -6,7 +6,7 @@ import UserInputForm from "./UserInputForm";
 const UserInput = props => {
   return (
     <Card>
-      <UserInputForm onSaveUserData={props.onSaveUserData} /> 
+      <UserInputForm onSaveUserData={props.onSaveUserData} onInvalidInput={props.onInvalidInput}/> 
     </Card>
   );
 };

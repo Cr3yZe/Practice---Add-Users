@@ -8,9 +8,16 @@ const UserInputForm = props => {
 
   const submitDataHandler = event => {
     event.preventDefault();
+    
+    const trimedUserName = userName.trim();
+
+    if (!(Boolean(trimedUserName.length))) {
+      props.onInvalidInput(true);
+      return;
+    }
 
     const user = {
-      name: userName,
+      name: trimedUserName,
       age: `(${userAge} years)`,
       id: Math.ceil(Math.random() * 1000),
     }
