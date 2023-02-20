@@ -29,18 +29,9 @@ function App() {
     setErrorMessage(message);
   };
 
-  if (showModal) {
-    return (
-      <div className={styles.appWrapper}>
-        <ModalError onChangingModal={showModalErrorHandler} modalErrorMessage={errorMessage} />
-        <UserInput onSaveUserData={saveUserData} onInvalidInput={showModalErrorHandler} sendCurrentUserData={currentUserData}/>
-        <UserList usersData={users} />
-      </div>
-    )
-  }
-
   return (
     <div className={styles.appWrapper}>
+      {showModal ? <ModalError onChangingModal={showModalErrorHandler} modalErrorMessage={errorMessage} /> : false}
       <UserInput onSaveUserData={saveUserData} onInvalidInput={showModalErrorHandler} />
       <UserList usersData={users} />
     </div>
