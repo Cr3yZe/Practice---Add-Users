@@ -13,8 +13,10 @@ const UserList = props => {
             name={user.name}
             age={user.age}
             key={user.id}
+            x={user.id}
+            onDelete={props.onDelete}
           />
-        ))}
+          ))}
       </Card>
     );
   }
@@ -22,7 +24,7 @@ const UserList = props => {
   return (
     <Card>
       <div className={styles.wrapper}>
-        <p>Sorry, there is no user to render!</p>
+        <p>Sorry, there is no user to render yet!</p>
       </div>
     </Card>
   );

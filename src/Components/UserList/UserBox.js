@@ -3,10 +3,14 @@ import React from "react";
 import styles from './UserBox.module.css'
 
 const UserBox = props => {
+  const deleteUserHandler = event => {
+    props.onDelete(event)
+  };
+
   return (
-    <div className={styles.box}>
+    <div id={props.x} className={styles.box} onClick={deleteUserHandler}>
       <div>{props.name}</div>
-      <div>{props.age}</div>
+      <div>{`${props.age} years`}</div>
     </div>
   );
 };

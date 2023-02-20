@@ -12,13 +12,17 @@ function App() {
   const [currentUserData, setCurrentUserData] = useState({});
 
   const saveUserData = userData => {
-    console.log(userData);
     setUsers(prevState => {
       return [
         userData,
         ...prevState,
       ];
     })
+  }
+
+  const onDeletingUser = data => {
+    const newUsers = users.filter(user => user.id !== parseInt(data.target.id));
+    setUsers(newUsers);
   }
 
   const showModalErrorHandler = (...values) => {
@@ -33,7 +37,7 @@ function App() {
     <div className={styles.appWrapper}>
       {showModal ? <ModalError onChangingModal={showModalErrorHandler} modalErrorMessage={errorMessage} /> : false}
       <UserInput onSaveUserData={saveUserData} onInvalidInput={showModalErrorHandler} />
-      <UserList usersData={users} />
+      <UserList usersData={users} onDelete={onDeletingUser} />
     </div>
   );
 }
