@@ -9,7 +9,7 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [users, setUsers] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
-  const [currentUserData, setCurrentUserData] = useState({});
+  // const [currentUserData, setCurrentUserData] = useState({});
 
   const saveUserData = userData => {
     setUsers(prevState => {
@@ -28,7 +28,7 @@ function App() {
   const showModalErrorHandler = (...values) => {
     const [message, userData, value] = values;
 
-    setCurrentUserData(userData);
+    // setCurrentUserData(userData);
     setShowModal(value);
     setErrorMessage(message);
   };
