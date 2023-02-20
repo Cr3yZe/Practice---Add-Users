@@ -6,7 +6,7 @@ const UserInputForm = props => {
   const [userName, setUserName] = useState('');
   const [userAge, setUserAge] = useState('');
 
-  if (!userName && !userAge) {  
+  if (!userName && !userAge) {
     if (props.sendCurrentUserData) {
       const { name, age } = props.sendCurrentUserData;
 
@@ -55,12 +55,12 @@ const UserInputForm = props => {
     <form className={styles.form} onSubmit={submitDataHandler}>
       <div>
         <div>
-          <label>Username</label>
-          <input type="text" value={userName} onChange={getUserNameHandler} />
+          <label htmlFor="username">Username</label>
+          <input id="username" type="text" value={userName} onChange={getUserNameHandler} />
         </div>
         <div>
-          <label>Age</label>
-          <input type="number" value={userAge} onChange={getUserAgeHandler} />
+          <label htmlFor="age">Age</label>
+          <input id="age" type="number" value={userAge} onChange={getUserAgeHandler} />
         </div>
         <button type="submit">Add User</button>
       </div>
