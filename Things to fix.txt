@@ -1,1 +1,0 @@
-1. When the modal appear the user's input stay on the input field, but when the modal is closed the user's data disappears from the fields.
